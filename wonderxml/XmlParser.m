@@ -154,8 +154,10 @@ static const char* getPropertyType(objc_property_t property) {
 	
 	NSArray *objects;
 	
+	NSComparisonResult compareResult = [objectNameStr localizedCaseInsensitiveCompare:[[doc rootElement] name]];
 	
-	if ([objectNameStr isEqualToString:[[doc rootElement] name]]) {
+	
+	if (compareResult == NSOrderedSame) {
 		objects = [NSArray arrayWithObject:[doc rootElement]];
 	}
 	
